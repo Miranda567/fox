@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar with Header</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #001041;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .watch-tv {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 3px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 100px;
+            text-decoration: none;
+        }
+
+        .menu-toggle {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .topic-nav {
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #e7e7e7;
+            padding: 10px 0;
+        }
+
+        .topic-nav-items {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            
+        }
+
+        .topic-nav-item {
+            display: inline;
+            border-radius: 25px;
+        }
+
+        .nav-item-label {
+            text-decoration: none;
+            padding: 5px 8px;
+            display: block;
+            color: white;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .color-dark-blue {
+            background-color: #003366;
+        }
+
+        .color-blue {
+            background-color: #1E90FF;
+        }
+
+        .color-purple {
+            background-color: #800080;
+        }
+
+        .color-green {
+            background-color: #008000;
+        }
+
+        .color-teal {
+            background-color: #008080;
+        }
+
+        .nav-item-label:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .active .nav-item-label {
+            background-color: #0000FF; /* Highlight the active link */
+        }
+                .footer {
+            background-color: #001041;
+            color: white;
+            padding: 20px 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin: 10px;
+            min-width: 200px;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #1E90FF;
+        }
+
+        .footer-logo {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .footer-logo img {
+            width: 150px;
+        }
+
+        .footer-social {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .footer-social a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .footer-social a:hover {
+            color: #1E90FF;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #444;
+            margin-top: 20px;
+        }
+
+        .footer-bottom a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: #1E90FF;
+        }
+                .blog-post {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        #postTitle {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        #postImage {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        #postContent {
+            color: #666;
+            line-height: 1.6;
+        }
+           #postDate {
+            color: darkgreen;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+          .blog-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 250px;
+        }
+
+        .card-banner img {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card-tag {
+            display: block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            color: #007;
+            margin: 10px 0;
+        }
+        .collapsible-content {
+            display: none;
+        }
+
+        .collapsible-content.active {
+            display: block;
+        }
+        .p-title {
+          text-align: center;
+          font-family: Courier New;
+          font-size: 20px;
+        }
+    
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">FOX NEWS</a>
+    <a href="#" class="watch-tv">Watch TV</a>
+    <span class="menu-toggle">&#9776;</span>
+</header>
+
+<nav class="topic-nav">
+    <ul class="topic-nav-items">
+        <li class="topic-nav-item color-dark-blue">
+            <a class="nav-item-label" href="https://www.foxnews.com/" data-omtr-intcmp="fnhp_fixednav_home">Home</a>
+        </li>
+        <li class="topic-nav-item color-blue">
+            <a class="nav-item-label" href="https://www.foxnews.com/sports" data-omtr-intcmp="fnhp_fixednav_sports">Sports</a>
+        </li>
+        <li class="topic-nav-item color-purple">
+            <a class="nav-item-label" href="https://www.foxnews.com/entertainment" data-omtr-intcmp="fnhp_fixednav_entertainment">Entertainment</a>
+        </li>
+        <li class="topic-nav-item color-green">
+            <a class="nav-item-label" href="https://www.foxnews.com/lifestyle" data-omtr-intcmp="fnhp_fixednav_lifestyle">Lifestyle</a>
+        </li>
+        <li class="topic-nav-item color-teal">
+            <a class="nav-item-label" href="https://www.foxnews.com/games" data-omtr-intcmp="fnhp_fixednav_games">Games</a>
+        </li>
+    </ul>
+</nav>
+
+ <div id="blogList"></div>
+
+  <!-- Firebase JavaScript SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <script>
+    // Initialize Firebase
+    var firebaseConfig = {
+  apiKey: "AIzaSyAtVvPjdsj84mWqaG4-7SyjbljCnslZ1SM",
+  authDomain: "hendaa-1.firebaseapp.com",
+  databaseURL: "https://hendaa-1-default-rtdb.firebaseio.com",
+  projectId: "hendaa-1",
+  storageBucket: "hendaa-1.appspot.com",
+  messagingSenderId: "831134776479",
+  appId: "1:831134776479:web:56cd7098fc69cd70a376aa"
+};
+    firebase.initializeApp(firebaseConfig);
+
+    // Firestore database
+    var db = firebase.firestore();
+
+    // Function to fetch and display blog posts
+    function fetchBlogPosts() {
+      db.collection("blogPosts").orderBy("timestamp", "desc").onSnapshot(function(querySnapshot) {
+        document.getElementById("blogList").innerHTML = "";
+        querySnapshot.forEach(function(doc) {
+          var post = doc.data();
+          var div = document.createElement("div");
+          div.classList.add("blog-post");
+          div.innerHTML = `
+              <div class="card-banner">
+              <img src="${post.imageUrl}" alt="Post Image">
+            </div>
+            <h3 class="card-title">${post.title}</h3>
+        <p class="card-content">${post.content}</p>
+             <p id="postDate">Posted on: ${new Date(post.timestamp.toDate()).toDateString()}</p>
+        
+          `;
+          document.getElementById("blogList").appendChild(div);
+        });
+      });
+    }
+
+    // Fetch and display blog posts when the page loads
+    window.onload = function() {
+      fetchBlogPosts();
+    };
+  </script>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Company</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>More</h3>
+            <ul>
+                <li><a href="#">Advertise with Us</a></li>
+                <li><a href="#">Press Room</a></li>
+                <li><a href="#">Media Kit</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-logo">
+        <img src="boonc.jpg" alt="Logo">
+    </div>
+
+    <div class="footer-social">
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2024 Your News App. All rights reserved. | <a href="#">Site Map</a> | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a>
+    </div>
+</footer>
+</body>
+</html>
