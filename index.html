@@ -9,6 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background: #f6f8fa;
         }
 
         header {
@@ -190,46 +191,47 @@
         }
                 .blog-post {
             background-color: #fff;
-            border-radius: 10px;
+            width: 100%;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
-            padding: 20px;
-            max-width: 280px;
+            margin: 5px auto;
+            padding: px;
+            max-width: 600px;
         }
 
         #postTitle {
             font-size: 24px;
-            color: #333;
+            color: #fff;
             margin-bottom: 10px;
         }
 
         #postImage {
             width: 100%;
-            border-radius: 10px;
-            margin-bottom: 10px;
+          
+            
         }
 
         #postContent {
-            color: #666;
+            color: red;
             line-height: 1.6;
         }
            #postDate {
-            color: darkgreen;
+            color: #fff;
             font-size: 14px;
-            margin-top: 5px;
+    margin-top: 10px;
+            background-color: #007;
+            padding: 5px 5px;
         }
           .blog-card {
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             margin: 20px auto;
-            max-width: 250px;
+            max-width: 350px;
         }
 
         .card-banner img {
             width: 100%;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+        
         }
 
         .card-tag {
@@ -246,7 +248,7 @@
         .card-title {
             font-size: 24px;
             color: #007;
-            margin: 10px 0;
+            margin: 10px;
         }
         .collapsible-content {
             display: none;
@@ -257,6 +259,7 @@
         }
         .p-title {
           text-align: center;
+          margin: 10px;
           font-family: Courier New;
           font-size: 20px;
         }
@@ -324,9 +327,10 @@
               <div class="card-banner">
               <img src="${post.imageUrl}" alt="Post Image">
             </div>
+                         <p id="postDate"> ${new Date(post.timestamp.toDate()).toDateString()}</p>
             <h3 class="card-title">${post.title}</h3>
-        <p class="card-content">${post.content}</p>
-             <p id="postDate">Posted on: ${new Date(post.timestamp.toDate()).toDateString()}</p>
+
+
         
           `;
           document.getElementById("blogList").appendChild(div);
